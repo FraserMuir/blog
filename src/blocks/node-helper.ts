@@ -3,13 +3,7 @@ import type { RenderableTreeNodes } from "@markdoc/markdoc";
 import Markdoc from "@markdoc/markdoc";
 
 const { Tag: MarkdocTag } = Markdoc;
-type ComponentsType = Record<
-  string,
-  {
-    Component: any; // ASTRO component
-    props: Record<string, string | number>;
-  }
->;
+type ComponentsType = Record<string, any>;
 
 function escapeHTML(s) {
   return s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -22,13 +16,7 @@ export class Node {
   children: Array | string;
   components: any | null | undefined;
 
-  constructor(n: RenderableTreeNodes, components?: ComponentsType) {
-    if (!n) {
-      throw new Error("Missing arg: n");
-    }
-    // if (!components) {
-    //   throw new Error("Missing arg: components");
-    // }
+  constructor(n: RenderableTreeNodes, components: ComponentsType) {
     this.node = n;
     this.components = components;
     let children = this.node?.children;
@@ -44,10 +32,10 @@ export class Node {
     let tag = this.node?.name;
     let props = this.node?.attributes;
     if (typeof this.node?.name === "string" && typeof components === "object" && Object.hasOwn(components, this.node?.name)) {
-      tag = components[this.node?.name].Component;
+      tag = components[this.node?.name];
       props = {
         ...props,
-        ...components[this.node?.name].props,
+        ...components[this.node?.name],
         children: this.children,
       };
     } else if (typeof this.node?.name === "string") {

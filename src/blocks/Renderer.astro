@@ -1,4 +1,5 @@
 ---
+/* eslint-disable */
 import type { RenderableTreeNodes } from "@markdoc/markdoc";
 import { Node } from "./node-helper";
 
@@ -10,41 +11,16 @@ import CodeBlock from "./components/CodeBlock.astro";
 import Code from "./components/Code.astro";
 import Heading from "./components/Heading.astro";
 
-type Props = {
-  content: RenderableTreeNodes;
-};
-
-const { content } = Astro.props;
+const { content } = Astro.props as { content: RenderableTreeNodes };
 
 const components = {
-  Heading: {
-    Component: Heading,
-    props: {},
-  },
-  code: {
-    Component: Code,
-    props: {},
-  },
-  CodeBlock: {
-    Component: CodeBlock,
-    props: {},
-  },
-  YouTubeEmbed: {
-    Component: YouTubeEmbed,
-    props: {},
-  },
-  TweetEmbed: {
-    Component: TweetEmbed,
-    props: {},
-  },
-  CodePenEmbed: {
-    Component: CodePenEmbed,
-    props: {},
-  },
-  GitHubGistEmbed: {
-    Component: GitHubGistEmbed,
-    props: {},
-  },
+  code: Code,
+  Heading: Heading,
+  CodeBlock: CodeBlock,
+  YouTubeEmbed: YouTubeEmbed,
+  TweetEmbed: TweetEmbed,
+  CodePenEmbed: CodePenEmbed,
+  GitHubGistEmbed: GitHubGistEmbed,
 };
 
 const node = new Node(content, components);
