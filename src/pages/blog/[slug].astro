@@ -12,17 +12,14 @@ export async function getStaticPaths() {
   });
 
   // we don't want to generate pages for posts that link to external websites
-  const filteredPosts = posts.filter((p) => p.frontmatter.draft !== true).filter(({ frontmatter }) => !frontmatter.external);
+  const filteredPosts = posts.filter((p) => !p.frontmatter.draft);
 
   return filteredPosts.map((post) => {
     return { params: { slug: post.slug } };
   });
 }
 
-const { slug } = Astro.params;
-if (typeof slug !== "string") {
-  throw Error(`slug should be string. Received: ${slug}`);
-}
+const { slug } = Astro.params as { slug: string };
 
 const { content, frontmatter } = await readOne({
   directory: "blog",
@@ -32,11 +29,6 @@ const { content, frontmatter } = await readOne({
 ---
 
 <ContentLayout title={frontmatter.title} date={frontmatter.date}>
-  <BlogPostMeta
-    title={frontmatter.title}
-    description={frontmatter.external ? undefined : frontmatter.description}
-    publishDate={frontmatter.date.toISOString()}
-    slot="meta"
-  />
+  <BlogPostMeta title={frontmatter.title} description={frontmatter.description} publishDate={frontmatter.date.toISOString()} slot="meta" />
   <Renderer content={content} slot="content" />
 </ContentLayout>

@@ -89,7 +89,3 @@ Syntax highlighting is done using [Prism.js](https://github.com/PrismJS/prism). 
   </body>
 </html>
 ```
-
-## Images
-
-![Blogster](/images/blogster.png)

@@ -36,12 +36,12 @@ const formattedDate = new Date(date).toLocaleDateString("en-us", {
     <ThemeScript />
   </head>
 
-  <body class="min-h-screen text-text-body bg-bg-body max-w-3xl mx-auto px-6 sm:px-8">
+  <body class="mx-auto min-h-screen max-w-3xl bg-bg-body px-6 text-text-body sm:px-8">
     <Header />
     <main id="main">
-      <section class="blog-post prose max-w-none prose-sleek">
+      <section class="blog-post prose prose-sleek max-w-none">
         <h1 class="m-0 mb-[0.25em]">{title}</h1>
-        <time class="block mb-[2em] text-text-muted">{formattedDate}</time>
+        <time class="mb-[2em] block text-text-muted">{formattedDate}</time>
         <slot name="content" />
       </section>
     </main>
