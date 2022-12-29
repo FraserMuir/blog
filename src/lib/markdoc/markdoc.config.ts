@@ -1,5 +1,7 @@
-import { nodes, Tag } from "@markdoc/markdoc";
+import Markdoc from "@markdoc/markdoc";
 import type { Config } from "@markdoc/markdoc";
+
+const { nodes, Tag } = Markdoc; // Markdoc is a CommonJS module, so we need to use the default export
 
 //  Markdoc config (https://markdoc.dev/docs/config )
 
