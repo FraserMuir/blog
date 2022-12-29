@@ -1,0 +1,67 @@
+---
+import type { RenderableTreeNodes } from "@markdoc/markdoc";
+import { Node } from "./node-helper";
+
+import YouTubeEmbed from "./components/YouTubeEmbed.astro";
+import TweetEmbed from "./components/TweetEmbed.astro";
+import CodePenEmbed from "./components/CodePenEmbed.astro";
+import GitHubGistEmbed from "./components/GitHubGistEmbed.astro";
+import CodeBlock from "./components/CodeBlock.astro";
+import Code from "./components/Code.astro";
+import Heading from "./components/Heading.astro";
+
+type Props = {
+  content: RenderableTreeNodes;
+};
+
+const { content } = Astro.props;
+
+const components = {
+  Heading: {
+    Component: Heading,
+    props: {},
+  },
+  code: {
+    Component: Code,
+    props: {},
+  },
+  CodeBlock: {
+    Component: CodeBlock,
+    props: {},
+  },
+  YouTubeEmbed: {
+    Component: YouTubeEmbed,
+    props: {},
+  },
+  TweetEmbed: {
+    Component: TweetEmbed,
+    props: {},
+  },
+  CodePenEmbed: {
+    Component: CodePenEmbed,
+    props: {},
+  },
+  GitHubGistEmbed: {
+    Component: GitHubGistEmbed,
+    props: {},
+  },
+};
+
+const node = new Node(content, components);
+node.validateElement();
+
+const Tag = node.tag;
+const props = node.props;
+const children = node.children;
+---
+
+{
+  node.shouldRenderChildren() ? (
+    <Fragment set:html={children} />
+  ) : node.shouldRenderSelf() ? (
+    // @ts-ignore
+    content.map((element) => <Astro.self content={element} components={components} />)
+  ) : node.shouldRenderTag() ? (
+    <Tag {...props}>{node.hasChildren() ? <Astro.self content={children} components={components} /> : null}</Tag>
+  ) : null
+}
