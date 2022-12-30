@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import compress from "astro-compress";
 
 const SERVER_PORT = 3000;
 const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
@@ -18,5 +19,6 @@ export default defineConfig({
     tailwind({
       config: { applyBaseStyles: false },
     }),
+    compress(),
   ],
 });
