@@ -6,7 +6,7 @@
   tabindex="0"
 >
   <span class="sr-only">Toggle dark mode</span>
-  <span id="mode-circle" class="absolute h-4 w-4 rounded-full bg-primary-500 duration-300 dark:translate-x-5 dark:bg-primary-400"></span>
+  <span id="mode-circle" class="absolute h-4 w-4 rounded-full bg-primary-500 dark:translate-x-5 dark:bg-primary-400"></span>
 </button>
 
 <script is:inline>
@@ -22,4 +22,8 @@
       localStorage.setItem("theme", "dark");
     }
   });
+  // Add duration-300 class to circle if if doesn't already have it
+  if (!document.querySelector("#mode-circle")?.classList?.contains("duration-300")) {
+    document.querySelector("#mode-circle").classList.add("duration-300");
+  }
 </script>
