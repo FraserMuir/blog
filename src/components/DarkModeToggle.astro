@@ -11,6 +11,10 @@
 
 <script is:inline>
   document.querySelector("#mode-toggle")?.addEventListener("click", () => {
+    // Add duration-300 class to circle if if doesn't already have it
+    if (!document.querySelector("#mode-circle")?.classList?.contains("duration-300")) {
+      document.querySelector("#mode-circle").classList.add("duration-300");
+    }
     const isDark = document.documentElement.classList.contains("dark");
     if (isDark) {
       document.documentElement.classList.remove("dark");
@@ -22,8 +26,4 @@
       localStorage.setItem("theme", "dark");
     }
   });
-  // Add duration-300 class to circle if if doesn't already have it
-  if (!document.querySelector("#mode-circle")?.classList?.contains("duration-300")) {
-    document.querySelector("#mode-circle").classList.add("duration-300");
-  }
 </script>
