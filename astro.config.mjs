@@ -6,8 +6,6 @@ export default defineConfig({
   site: "https://blog-beta-six-37.vercel.app",
   integrations: [
     sitemap(),
-    tailwind({
-      config: { applyBaseStyles: false },
-    }),
+    tailwind(),
   ],
 });
