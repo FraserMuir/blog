@@ -1,9 +1,8 @@
 ---
-import { readAll } from "../lib/markdoc/read";
-import { blog } from "../lib/markdoc/frontmatter.schema";
+import { readAll } from "../lib/read";
+import { blog } from "../lib/frontmatter.schema";
 import PageLayout from "../layouts/PageLayout.astro";
 import PageMeta from "../components/PageMeta.astro";
-import { SITE_TITLE } from "../config";
 
 const posts = await readAll({
   directory: "blog",
@@ -16,7 +15,7 @@ const sortedPosts = posts
 ---
 
 <PageLayout>
-  <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
+  <PageMeta title="Blog" slot="meta" />
   <section slot="main">
     <ul>
       {

@@ -1,9 +1,9 @@
 ---
-import { readOne, readAll } from "../../lib/markdoc/read";
-import { blog } from "../../lib/markdoc/frontmatter.schema";
+import { readOne, readAll } from "../../lib/read";
+import { blog } from "../../lib/frontmatter.schema";
 import { default as Renderer } from "../../blocks/Renderer.astro";
-import BlogPostMeta from "../../components/BlogPostMeta.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import PageMeta from "src/components/PageMeta.astro";
 
 export async function getStaticPaths() {
   const posts = await readAll({
@@ -29,6 +29,6 @@ const { content, frontmatter } = await readOne({
 ---
 
 <ContentLayout title={frontmatter.title} date={frontmatter.date}>
-  <BlogPostMeta title={frontmatter.title} description={frontmatter.description} publishDate={frontmatter.date.toISOString()} slot="meta" />
+  <PageMeta title={frontmatter.title} slot="meta" />
   <Renderer content={content} slot="content" />
 </ContentLayout>

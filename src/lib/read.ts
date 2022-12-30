@@ -43,13 +43,7 @@ function validateFrontmatter<T extends z.ZodTypeAny>({
   }
 }
 
-export async function read<T extends z.ZodTypeAny>({
-  filepath,
-  schema,
-}: {
-  filepath: string;
-  schema: T;
-}) {
+export async function read<T extends z.ZodTypeAny>({ filepath, schema }: { filepath: string; schema: T }) {
   const rawString = await fs.readFile(filepath, "utf8");
   const { content, data: frontmatter } = matter(rawString);
   const transformedContent = await parseAndTransform({ content });
@@ -95,7 +89,7 @@ export async function readAll<T extends z.ZodTypeAny>({
   directory: string;
   frontmatterSchema: T;
 }) {
-  const pathToDir = path.join(contentDirectory, directory).replace(/\\/g, '/');
+  const pathToDir = path.join(contentDirectory, directory).replace(/\\/g, "/");
   const paths = await globby(`${pathToDir}/*.md`);
 
   return Promise.all(paths.map((path) => read({ filepath: path, schema })));

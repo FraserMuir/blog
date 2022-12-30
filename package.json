@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@astrojs/prism": "^1.0.2",
-    "@astrojs/rss": "^1.2.1",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^2.1.3",
     "@markdoc/markdoc": "^0.2.1",
@@ -24,7 +23,6 @@
     "zod": "^3.20.2"
   },
   "devDependencies": {
-    "astro-compress": "1.1.24",
     "eslint": "^8.30.0",
     "prettier": "^2.8.1",
     "prettier-plugin-astro": "^0.7.0",

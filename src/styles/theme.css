@@ -3,10 +3,7 @@
   /* #b4f4e0 */
   --color-text-selection: 49 33 94;
   /* #31215e */
-}
 
-/* light theme */
-.theme-sleek {
   /* tailwind orange 50-900 */
   --color-primary-50: 255 247 237;
   --color-primary-100: 255 237 213;
@@ -48,7 +45,7 @@
 }
 
 /* dark theme */
-.theme-sleek.dark {
+.dark {
   /* tailwind yellow 50-900 */
   --color-primary-50: 255 251 235;
   --color-primary-100: 254 243 199;
