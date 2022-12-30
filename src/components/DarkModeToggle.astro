@@ -11,7 +11,7 @@
   <span id="mode-circle" class="absolute h-4 w-4 rounded-full bg-primary-500 duration-300 dark:translate-x-5 dark:bg-primary-400"></span>
 </button>
 
-<script>
+<script is:inline>
   document.querySelector("#mode-toggle")?.addEventListener("click", () => {
     const isDark = document.documentElement.classList.contains("dark");
     if (isDark) {
