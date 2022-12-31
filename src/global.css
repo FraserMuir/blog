@@ -49,7 +49,7 @@
     color: rgb(var(--icon-color));
   }
 
-  code {
+  code:not(pre code):not(.unset) {
     background-color: theme("colors.code-bg");
     color: theme("colors.icon");
     padding: 0.125rem 0.25rem;

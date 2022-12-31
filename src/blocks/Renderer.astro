@@ -5,7 +5,6 @@ import { Node } from "./node-helper";
 import YouTubeEmbed from "./components/YouTubeEmbed.astro";
 import TweetEmbed from "./components/TweetEmbed.astro";
 import CodePenEmbed from "./components/CodePenEmbed.astro";
-import GitHubGistEmbed from "./components/GitHubGistEmbed.astro";
 import CodeBlock from "./components/CodeBlock.astro";
 import Code from "./components/Code.astro";
 import Heading from "./components/Heading.astro";
@@ -19,7 +18,6 @@ const components = {
   YouTubeEmbed: YouTubeEmbed,
   TweetEmbed: TweetEmbed,
   CodePenEmbed: CodePenEmbed,
-  GitHubGistEmbed: GitHubGistEmbed,
 };
 
 const node = new Node(content, components);
