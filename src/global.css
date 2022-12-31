@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* light-mode colors */
+  body {
+    --text-color: 55 65 81; /* black */
+    --icon-color: 55 65 81; /* black */
+    --accent-color: 241 100 16; /* orange */
+    --page-color: 255 255 255; /* white */
+    --page-accent-color: 229 229 229; /* gray */
+    --code-background-color: 255 247 237; /* light yellow */
+    --code-border-color: 255 237 213; /* light yellow */
+  }
+
+  /* dark-mode colors */
+  .dark body {
+    --text-color: 214 211 209; /* white */
+    --icon-color: 255 255 255; /* pure white */
+    --accent-color: 250 204 21; /* yellow */
+    --page-color: 14 20 27; /* dark navy */
+    --page-accent-color: 64 64 64; /* gray */
+    --code-background-color: 47 44 24; /* dark yellow */
+    --code-border-color: 78 73 50; /* dark yellow */
+  }
+}
+
+@layer components {
+  body {
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 48rem;
+    background-color: rgb(var(--page-color));
+    color: rgb(var(--text-color));
+    font-size: 17px;
+    font-family: -apple-system, "Open Sans", "Helvetica Neue", sans-serif;
+    line-height: 2rem;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  strong {
+    font-weight: 600;
+    color: rgb(var(--icon-color));
+  }
+
+  code {
+    background-color: theme("colors.code-bg");
+    color: theme("colors.icon");
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 600;
+    border: 1px solid theme("colors.code-border");
+    margin-bottom: 1.25em;
+  }
+
+  ul:not(.unset) > li {
+    margin: 0.5em 0;
+    position: relative;
+    padding-left: 1.375em;
+  }
+
+  ul:not(.unset) > li::before {
+    position: absolute;
+    left: 0;
+    content: "\bb";
+    color: rgb(var(--text-color) / 0.7);
+  }
+
+  a:not(.unset) {
+    text-decoration: underline 2px solid theme("colors.accent");
+    text-underline-offset: 0.125rem;
+  }
+
+  a:not(.unset):hover {
+    color: theme("colors.accent");
+  }
+}
+
+@layer utilities {
+  .animated-link {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .animated-link:after {
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    content: "";
+    height: 2px;
+    position: absolute;
+    transform: translateZ(0) scaleX(0);
+    transform-origin: left center;
+    transition: all 0.15s ease-in-out;
+    background-color: rgb(var(--accent-color));
+  }
+
+  .animated-link:hover:after,
+  .animated-link.show:after {
+    transform: translateZ(0) scale(1);
+  }
+}

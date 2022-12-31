@@ -1,14 +1,10 @@
 ---
-import PageMeta from "../components/PageMeta.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 import Intro from "../components/Intro.astro";
 import AboutTheTheme from "../components/AboutTheTheme.astro";
 ---
 
 <PageLayout>
-  <PageMeta title="Captain Awesome" slot="meta" />
-  <Fragment slot="main">
-    <Intro />
-    <AboutTheTheme />
-  </Fragment>
+  <Intro />
+  <AboutTheTheme />
 </PageLayout>

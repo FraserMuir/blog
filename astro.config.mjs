@@ -5,5 +5,11 @@ import compress from "astro-compress";
 
 export default defineConfig({
   site: "https://blog-beta-six-37.vercel.app",
-  integrations: [sitemap(), tailwind(), compress()],
+  integrations: [
+    sitemap(),
+    tailwind({
+      config: { applyBaseStyles: false },
+    }),
+    compress(),
+  ],
 });

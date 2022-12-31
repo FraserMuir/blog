@@ -1,18 +1,18 @@
 <button
-  class="relative ml-4 flex h-6 w-11 items-center rounded-full bg-neutral-200 p-1 dark:bg-neutral-700"
+  class="relative flex h-6 w-11 items-center rounded-full bg-page-accent p-1"
   id="mode-toggle"
   role="switch"
   type="button"
   tabindex="0"
 >
   <span class="sr-only">Toggle dark mode</span>
-  <span id="mode-circle" class="absolute h-4 w-4 rounded-full bg-primary-500 dark:translate-x-5 dark:bg-primary-400"></span>
+  <span id="mode-circle" class="absolute h-4 w-4 rounded-full bg-accent dark:translate-x-5"></span>
 </button>
 
 <script is:inline>
   document.querySelector("#mode-toggle")?.addEventListener("click", () => {
-    // Add duration-300 class to circle if if doesn't already have it
-    if (!document.querySelector("#mode-circle")?.classList?.contains("duration-300")) {
+    // Add duration-300 class to circle if doesn't already have it
+    if (!document.querySelector("#mode-circle").classList.contains("duration-300")) {
       document.querySelector("#mode-circle").classList.add("duration-300");
     }
     const isDark = document.documentElement.classList.contains("dark");

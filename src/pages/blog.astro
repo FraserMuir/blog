@@ -2,7 +2,6 @@
 import { readAll } from "../lib/read";
 import { blog } from "../lib/frontmatter.schema";
 import PageLayout from "../layouts/PageLayout.astro";
-import PageMeta from "../components/PageMeta.astro";
 
 const posts = await readAll({
   directory: "blog",
@@ -15,8 +14,7 @@ const sortedPosts = posts
 ---
 
 <PageLayout>
-  <PageMeta title="Blog" slot="meta" />
-  <section slot="main">
+  <section>
     <ul>
       {
         sortedPosts.map((post) => {

@@ -3,7 +3,6 @@ import { readOne, readAll } from "../../lib/read";
 import { blog } from "../../lib/frontmatter.schema";
 import { default as Renderer } from "../../blocks/Renderer.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
-import PageMeta from "src/components/PageMeta.astro";
 
 export async function getStaticPaths() {
   const posts = await readAll({
@@ -29,6 +28,5 @@ const { content, frontmatter } = await readOne({
 ---
 
 <ContentLayout title={frontmatter.title} date={frontmatter.date}>
-  <PageMeta title={frontmatter.title} slot="meta" />
-  <Renderer content={content} slot="content" />
+  <Renderer content={content} />
 </ContentLayout>
