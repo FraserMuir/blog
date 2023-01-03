@@ -1,29 +1,26 @@
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  /* light-mode colors */
-  body {
-    --text-color: 55 65 81; /* black */
-    --icon-color: 55 65 81; /* black */
-    --accent-color: 241 100 16; /* orange */
-    --page-color: 255 255 255; /* white */
-    --page-accent-color: 229 229 229; /* gray */
-    --code-background-color: 255 247 237; /* light yellow */
-    --code-border-color: 255 237 213; /* light yellow */
-  }
+/* light-mode colors */
+body {
+  --text-color: 55 65 81; /* black */
+  --icon-color: 55 65 81; /* black */
+  --accent-color: 241 100 16; /* orange */
+  --page-color: 255 255 255; /* white */
+  --page-accent-color: 229 229 229; /* gray */
+  --code-background-color: 255 247 237; /* light yellow */
+  --code-border-color: 255 237 213; /* light yellow */
+}
 
-  /* dark-mode colors */
-  .dark body {
-    --text-color: 214 211 209; /* white */
-    --icon-color: 255 255 255; /* pure white */
-    --accent-color: 250 204 21; /* yellow */
-    --page-color: 14 20 27; /* dark navy */
-    --page-accent-color: 64 64 64; /* gray */
-    --code-background-color: 47 44 24; /* dark yellow */
-    --code-border-color: 78 73 50; /* dark yellow */
-  }
+/* dark-mode colors */
+.dark body {
+  --text-color: 214 211 209; /* white */
+  --icon-color: 255 255 255; /* pure white */
+  --accent-color: 250 204 21; /* yellow */
+  --page-color: 14 20 27; /* dark navy */
+  --page-accent-color: 64 64 64; /* gray */
+  --code-background-color: 47 44 24; /* dark yellow */
+  --code-border-color: 78 73 50; /* dark yellow */
 }
 
 @layer components {
