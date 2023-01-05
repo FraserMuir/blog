@@ -1,5 +1,5 @@
 ---
-import globalCSS from "../global.css?raw";
+import GlobalStyles from "../GlobalStyles.astro";
 
 interface Props {
   title?: string;
@@ -16,7 +16,11 @@ const { title, description } = Astro.props;
 {description && <meta name="description" content={description} />}
 
 <script is:inline>
-  document.documentElement.classList.add(localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light");
+  document.documentElement.classList.add(
+    localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ? "dark"
+      : "light"
+  );
 </script>
 
-<style is:inline set:html={globalCSS}></style>
+<GlobalStyles />

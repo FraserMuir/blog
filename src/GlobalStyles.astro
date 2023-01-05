@@ -1,0 +1,106 @@
+---
+---
+
+<style is:global is:inline>
+  body {
+    --text-color: #374151;
+    --text-muted: #c6c6c6;
+    --icon-color: #374151;
+    --accent-color: #f16410;
+    --page-color: #ffffff;
+    --page-accent-color: #e5e5e5;
+    --code-background-color: #fff7ed;
+    --code-border-color: #ffedd5;
+  }
+
+  .dark body {
+    --text-color: #d6d3d1;
+    --text-muted: #aeaeae;
+    --icon-color: #ffffff;
+    --accent-color: #facc15;
+    --page-color: #0e141b;
+    --page-accent-color: #404040;
+    --code-background-color: #2f2c18;
+    --code-border-color: #4e4932;
+  }
+
+  /* Global components */
+  body {
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 48rem;
+    background-color: rgb(var(--page-color));
+    color: rgb(var(--text-color));
+    font-size: 17px;
+    font-family: -apple-system, "Open Sans", "Helvetica Neue", sans-serif;
+    line-height: 2rem;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  strong {
+    font-weight: 600;
+    color: rgb(var(--icon-color));
+  }
+
+  code:not(pre code):not(.unset) {
+    background-color: var(--code-background-color);
+    color: var(--icon-color);
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 600;
+    border: 1px solid var(--code-border-color);
+    margin-bottom: 1.25em;
+  }
+
+  ul:not(.unset) > li {
+    margin: 0.5em 0;
+    position: relative;
+    padding-left: 1.375em;
+  }
+
+  ul:not(.unset) > li::before {
+    position: absolute;
+    left: 0;
+    content: "\bb";
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+
+  a:not(.unset) {
+    text-decoration: underline 2px solid var(--accent-color);
+    text-underline-offset: 0.125rem;
+  }
+
+  a:not(.unset):hover {
+    color: var(--accent-color);
+  }
+
+  .animated-link {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .animated-link:after {
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    content: "";
+    height: 2px;
+    position: absolute;
+    transform: translateZ(0) scaleX(0);
+    transform-origin: left center;
+    transition: all 0.15s ease-in-out;
+    background-color: rgb(var(--accent-color));
+  }
+
+  .animated-link:hover:after,
+  .animated-link.show:after {
+    transform: translateZ(0) scale(1);
+  }
+</style>
