@@ -1,19 +1,12 @@
-<button
-  class="relative flex h-6 w-11 items-center rounded-full bg-page-accent p-1"
-  id="mode-toggle"
-  role="switch"
-  type="button"
-  tabindex="0"
->
-  <span class="sr-only">Toggle dark mode</span>
-  <span id="mode-circle" class="absolute h-4 w-4 rounded-full bg-accent dark:translate-x-5"></span>
+<button id="mode-toggle" role="switch" type="button" tabindex="0">
+  <span id="mode-circle"></span>
 </button>
 
 <script is:inline>
   document.querySelector("#mode-toggle")?.addEventListener("click", () => {
     // Add duration-300 class to circle if doesn't already have it
-    if (!document.querySelector("#mode-circle").classList.contains("duration-300")) {
-      document.querySelector("#mode-circle").classList.add("duration-300");
+    if (!document.querySelector("#mode-circle").style.transitionDuration) {
+      document.querySelector("#mode-circle").style.transitionDuration = "0.3s";
     }
     const isDark = document.documentElement.classList.contains("dark");
     if (isDark) {
@@ -27,3 +20,28 @@
     }
   });
 </script>
+
+<style>
+  #mode-toggle {
+    position: relative;
+    display: flex;
+    height: 1.5rem;
+    width: 2.75rem;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: var(--page-accent);
+    padding: 0.25rem;
+  }
+
+  #mode-toggle > #mode-circle {
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: var(--page-accent);
+  }
+
+  #mode-toggle > #mode-circle.dark {
+    transform: translateX(1.25rem);
+  }
+</style>

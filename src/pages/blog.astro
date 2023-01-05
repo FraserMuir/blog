@@ -18,19 +18,17 @@ const sortedPosts = posts
     <ul>
       {
         sortedPosts.map((post) => {
-          const formattedDate = post.frontmatter.date.toLocaleDateString("en-us", {
+          const formattedDate = post.frontmatter.date.toLocaleDateString("en-uk", {
             year: "numeric",
             month: "short",
             day: "numeric",
           });
           return (
-            <li class="mb-3 grid grid-cols-[1fr] md:grid-cols-[1fr_auto]">
-              <div class="title">
-                <a href={`/blog/${post.slug}`} class="unset hover:text-text-link">
-                  {post.frontmatter.title}
-                </a>
-              </div>
-              <div class="text-text-muted text-sm italic">
+            <li class="post">
+              <a class="unset" href={`/blog/${post.slug}`}>
+                {post.frontmatter.title}
+              </a>
+              <div class="date">
                 <time datetime={post.frontmatter.date.toISOString()}>{formattedDate}</time>
               </div>
             </li>
@@ -40,3 +38,18 @@ const sortedPosts = posts
     </ul>
   </section>
 </PageLayout>
+
+<style>
+  .post {
+    margin-bottom: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
+  }
+
+  .post > .date {
+    color: var(--text-color);
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+</style>

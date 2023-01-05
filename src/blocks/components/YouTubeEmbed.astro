@@ -9,7 +9,6 @@ const { url, label } = Astro.props;
 
 <div>
   <iframe
-    class="aspect-video w-full"
     src={url}
     title={label}
     frame-border="0"
@@ -18,3 +17,10 @@ const { url, label } = Astro.props;
   >
   </iframe>
 </div>
+
+<style>
+  iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+</style>

@@ -13,16 +13,34 @@ const id = slugify(headingText.toLowerCase());
 const Tag: HTMLTag = `h${level}`;
 ---
 
-<Tag id={id} class="group flex -ml-4">
-  <span class="not-prose -mt-0.5 w-4">
-    <a
-      aria-label="link to this heading"
-      aria-describedby={headingText}
-      href={`#${id}`}
-      class="unset text-base font-bold text-text-link opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100"
-    >
-      #
-    </a>
+<Tag id={id} class="heading">
+  <span>
+    <a aria-label="link to this heading" aria-describedby={headingText} href={`#${id}`} class="unset anchor"> #</a>
   </span>
   <span>{children}</span>
 </Tag>
+
+<style>
+  .heading {
+    display: flex;
+    margin-left: -1rem;
+  }
+
+  .heading > span {
+    margin-top: -0.125rem;
+    width: 1rem;
+  }
+
+  .heading > span > .anchor {
+    color: var(--text-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .heading:focus > span > .anchor,
+  .heading:hover > span > .anchor {
+    opacity: 1;
+  }
+</style>

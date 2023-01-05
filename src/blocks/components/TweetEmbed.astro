@@ -6,9 +6,31 @@ type Props = {
 const { url } = Astro.props;
 ---
 
-<div class="not-prose relative flex flex-col items-center justify-center">
-  <blockquote class="twitter-tweet" data-conversation="none" data-theme="light" data-lang="en" data-dnt="true">
-    <a class="unset absolute left-0 top-0" href={url}>Loading embedded tweet...</a>
+<div class="twitter">
+  <blockquote class="twitter-tweet" data-conversation="none" data-lang="en" data-dnt="true">
+    <a class="unset" href={url}>Loading embedded tweet...</a>
   </blockquote>
 </div>
+
+<script>
+  const tweet = document.querySelector(".twitter-tweet") as HTMLElement;
+  tweet.dataset.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+</script>
+
 <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<style>
+  .twitter {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .twitter-tweet a {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>
