@@ -2,9 +2,9 @@
   <span id="mode-circle"></span>
 </button>
 
-<script>
-  const toggle = document.querySelector("#mode-toggle") as HTMLButtonElement;
-  const circle = document.querySelector("#mode-circle") as HTMLSpanElement;
+<script is:inline>
+  const toggle = document.querySelector("#mode-toggle");
+  const circle = document.querySelector("#mode-circle");
   toggle.addEventListener("click", () => {
     circle.style.transitionDuration = "0.3s";
     const classes = document.documentElement.classList;
