@@ -12,8 +12,8 @@ const { url } = Astro.props;
   </blockquote>
 </div>
 
-<script>
-  const tweet = document.querySelector(".twitter-tweet") as HTMLElement;
+<script is:inline>
+  const tweet = document.querySelector(".twitter-tweet");
   tweet.dataset.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
 </script>
 
