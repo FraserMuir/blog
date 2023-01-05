@@ -2,22 +2,17 @@
   <span id="mode-circle"></span>
 </button>
 
-<script is:inline>
-  document.querySelector("#mode-toggle")?.addEventListener("click", () => {
-    // Add duration-300 class to circle if doesn't already have it
-    if (!document.querySelector("#mode-circle").style.transitionDuration) {
-      document.querySelector("#mode-circle").style.transitionDuration = "0.3s";
-    }
-    const isDark = document.documentElement.classList.contains("dark");
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    }
+<script>
+  const toggle = document.querySelector("#mode-toggle") as HTMLButtonElement;
+  const circle = document.querySelector("#mode-circle") as HTMLSpanElement;
+  toggle.addEventListener("click", () => {
+    circle.style.transitionDuration = "0.3s";
+    const classes = document.documentElement.classList;
+    const add = classes.contains("dark") ? "light" : "dark";
+    const remove = classes.contains("dark") ? "dark" : "light";
+    classes.remove(remove);
+    classes.add(add);
+    localStorage.setItem("theme", add);
   });
 </script>
 

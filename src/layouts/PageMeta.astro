@@ -1,4 +1,6 @@
 ---
+import globalCSS from "../global.css";
+
 interface Props {
   title?: string;
   description?: string;
@@ -16,3 +18,5 @@ const { title, description } = Astro.props;
 <script is:inline>
   document.documentElement.classList.add(localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light");
 </script>
+
+<style is:inline set:html={globalCSS}></style>
