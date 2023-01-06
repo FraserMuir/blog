@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, maxage=60, stale-while-revalidate"
+          "value": "public, max-age=60"
         },
         {
           "key": "X-Content-Type-Options",
