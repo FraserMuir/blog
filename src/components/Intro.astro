@@ -4,31 +4,43 @@
 <section>
   <h1>Captain Awesome</h1>
   <h2>Web Developer. OSS Wizard. Blogger.</h2>
-  <p>Hello! This is a starter template to build your own blog with stuff!</p>
-  <code>npx create-blogster@latest --theme sleek</code>
+  <p>
+    Hello! This is a starter template to build your own blog with
+    <a href="https://github.com/flexdinesh/blogster" target="_blank">Blogster</a>. Available in four themes
+    <a href="https://blogster-minimal.netlify.app" target="_blank">minimal</a>,
+    <a href="https://blogster-sleek.netlify.app" target="_blank">sleek</a>,
+    <a href="https://blogster-newspaper.netlify.app" target="_blank">newspaper</a> and
+    <a href="https://blogster-bubblegum.netlify.app" target="_blank">bubblegum</a>. This blog is a demo for <strong>sleek</strong> theme. Get
+    started with one simple command.
+  </p>
+  <div class="code-center">
+    <code>npx create-blogster@latest --theme sleek</code>
+  </div>
 </section>
 
 <style is:inline>
-  section {
-    margin-bottom: 2rem;
-  }
-
   h1 {
-    color: var(--color-accent);
+    color: var(--accent-color);
     font-size: 3.75rem;
     font-weight: 800;
-    margin-bottom: 0.5rem;
+    margin: 1rem 0 2.2rem 0;
   }
 
   h2 {
-    margin-bottom: 1.5rem;
-    font-size: 1.875rem;
+    margin-bottom: 2.2rem;
+    font-size: 1.5rem;
+    font-weight: normal;
   }
 
   p {
     margin-bottom: 1.35rem;
   }
 
+  .code-center {
+    width: fit-content;
+    margin: 0 auto 1.25rem auto;
+  }
+  
   code {
     overflow-x: auto;
     white-space: nowrap;

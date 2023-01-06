@@ -30,12 +30,12 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    max-width: 48rem;
-    background-color: rgb(var(--page-color));
-    color: rgb(var(--text-color));
-    font-size: 17px;
+    max-width: 47rem;
+    background-color: var(--page-color);
+    color: var(--text-color);
+    font-size: 17.75px;
     font-family: -apple-system, "Open Sans", "Helvetica Neue", sans-serif;
-    line-height: 2rem;
+    line-height: 1.75rem;
   }
 
   main {
@@ -44,7 +44,7 @@
 
   strong {
     font-weight: 600;
-    color: rgb(var(--icon-color));
+    color: var(--icon-color);
   }
 
   code:not(pre code):not(.unset) {
@@ -55,7 +55,11 @@
     font-size: 0.875em;
     font-weight: 600;
     border: 1px solid var(--code-border-color);
-    margin-bottom: 1.25em;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
   }
 
   ul:not(.unset) > li {
@@ -70,6 +74,10 @@
     content: "\bb";
     color: var(--text-color);
     opacity: 0.7;
+  }
+
+  a {
+    color: inherit;
   }
 
   a:not(.unset) {
@@ -96,7 +104,7 @@
     transform: translateZ(0) scaleX(0);
     transform-origin: left center;
     transition: all 0.15s ease-in-out;
-    background-color: rgb(var(--accent-color));
+    background-color: var(--accent-color);
   }
 
   .animated-link:hover:after,
