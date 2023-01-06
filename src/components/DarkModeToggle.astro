@@ -1,17 +1,20 @@
-<button id="mode-toggle" role="switch" type="button" tabindex="0">
+<button id="mode-toggle" role="switch" type="button" aria-checked="false" tabindex="0">
   <span id="mode-circle"></span>
 </button>
 
 <script is:inline>
   const toggle = document.querySelector("#mode-toggle");
   const circle = document.querySelector("#mode-circle");
+  const classes = document.documentElement.classList;
+  const isDark = () => classes.contains("dark");
+  toggle.setAttribute("aria-checked", isDark());
   toggle.addEventListener("click", () => {
     circle.style.transitionDuration = "0.3s";
-    const classes = document.documentElement.classList;
-    const add = classes.contains("dark") ? "light" : "dark";
-    const remove = classes.contains("dark") ? "dark" : "light";
+    const add = isDark() ? "light" : "dark";
+    const remove = isDark() ? "dark" : "light";
     classes.remove(remove);
     classes.add(add);
+    toggle.setAttribute("aria-checked", isDark());
     localStorage.setItem("theme", add);
   });
 </script>

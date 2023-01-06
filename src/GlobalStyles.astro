@@ -94,7 +94,7 @@
     text-decoration: none;
   }
 
-  .animated-link:after {
+  .animated-link::after {
     left: 0;
     right: 0;
     bottom: -3px;
@@ -107,8 +107,8 @@
     background-color: var(--accent-color);
   }
 
-  .animated-link:hover:after,
-  .animated-link.show:after {
+  .animated-link:hover::after,
+  .animated-link.show::after {
     transform: translateZ(0) scale(1);
   }
 </style>
