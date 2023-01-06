@@ -18,14 +18,14 @@ const sortedPosts = posts
     <ul>
       {
         sortedPosts.map((post) => {
-          const formattedDate = post.frontmatter.date.toLocaleDateString("en-uk", {
+          const formattedDate = post.frontmatter.date.toLocaleDateString("en-us", {
             year: "numeric",
             month: "short",
             day: "numeric",
           });
           return (
             <li class="post">
-              <a class="unset" href={`/blog/${post.slug}`}>
+              <a class="unset link" href={`/blog/${post.slug}`}>
                 {post.frontmatter.title}
               </a>
               <div class="date">
@@ -47,8 +47,12 @@ const sortedPosts = posts
     grid-template-columns: 1fr auto;
   }
 
+  .post > .link {
+    text-decoration: none;
+  }
+
   .post > .date {
-    color: var(--text-color);
+    color: var(--text-muted);
     font-size: 0.875rem;
     font-style: italic;
   }

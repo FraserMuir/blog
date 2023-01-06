@@ -4,6 +4,7 @@
 <style is:global is:inline>
   body {
     --text-color: #374151;
+    --heading-color: #232933;
     --text-muted: #c6c6c6;
     --icon-color: #374151;
     --accent-color: #f16410;
@@ -15,6 +16,7 @@
 
   .dark body {
     --text-color: #d6d3d1;
+    --heading-color: #ffffff;
     --text-muted: #aeaeae;
     --icon-color: #ffffff;
     --accent-color: #facc15;
@@ -43,13 +45,13 @@
   }
 
   strong {
-    font-weight: 600;
-    color: var(--icon-color);
+    font-weight: 700;
+    color: var(--heading-color);
   }
 
   code:not(pre code):not(.unset) {
     background-color: var(--code-background-color);
-    color: var(--icon-color);
+    color: var(--heading-color);
     padding: 0.125rem 0.25rem;
     border-radius: 0.25rem;
     font-size: 0.875em;
@@ -80,13 +82,13 @@
     color: inherit;
   }
 
+  a:hover {
+    color: var(--accent-color);
+  }
+
   a:not(.unset) {
     text-decoration: underline 2px solid var(--accent-color);
     text-underline-offset: 0.125rem;
-  }
-
-  a:not(.unset):hover {
-    color: var(--accent-color);
   }
 
   .animated-link {
@@ -110,5 +112,133 @@
   .animated-link:hover::after,
   .animated-link.show::after {
     transform: translateZ(0) scale(1);
+  }
+
+  .post-heading {
+    display: flex;
+    margin-left: -1rem;
+  }
+
+  .post-heading > .anchor {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: 1rem;
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-weight: 800;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .post-heading > .anchor:focus,
+  .post-heading:hover > .anchor {
+    opacity: 1;
+  }
+
+  :where(h1, h2, h3, h4, h5) + * {
+    margin-top: 0 !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--heading-color);
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.33;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    line-height: 1.6;
+  }
+
+  h4 {
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+  }
+
+  h6 {
+    color: var(--text-muted);
+  }
+
+  blockquote {
+    border-left: 0.25rem solid var(--accent-color);
+    margin: 1.6em 0;
+    padding-left: 1em;
+    font-weight: 500;
+  }
+
+  blockquote * {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+
+  table {
+    width: 100%;
+    table-layout: auto;
+    text-align: left;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 0.875em;
+    line-height: 1.7;
+  }
+
+  thead {
+    border-bottom: 1px solid var(--text-muted);
+  }
+
+  tr {
+    border-bottom: 1px solid var(--page-accent-color);
+  }
+
+  tr:last-child {
+    border: none;
+  }
+
+  th {
+    color: var(--heading-color);
+    font-weight: 600;
+    vertical-align: bottom;
+    padding: 0 0.6em 0.6em 0.6em;
+  }
+
+  :where(th, td):first-child {
+    padding-left: 0;
+  }
+
+  td {
+    vertical-align: baseline;
+    padding: 0.6em;
+  }
+
+  pre.astro-code {
+    border-radius: 0.8rem;
+    padding: 1.25rem;
+    font-size: 0.915rem;
+    line-height: 1.4;
   }
 </style>
