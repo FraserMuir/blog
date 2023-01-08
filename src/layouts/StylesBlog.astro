@@ -24,10 +24,6 @@
     opacity: 1;
   }
 
-  ul > li > ul {
-    margin-bottom: 0.5rem;
-  }
-
   ol:not(.unset) {
     list-style: none;
     counter-reset: item;
@@ -37,6 +33,11 @@
   ol:not(.unset) > li {
     padding-left: 1.375em;
     position: relative;
+    margin-bottom: 0.5em;
+  }
+
+  ol:not(.unset) > li > ol > li {
+    margin-bottom: 0;
   }
 
   ol:not(.unset) > li::before {
