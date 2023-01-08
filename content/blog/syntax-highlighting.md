@@ -42,7 +42,7 @@ An example `css` code block.
 ```css
 .layout {
   display: grid;
-  grid-template-columns: 5rem minmax(0, 1fr) 4rem;
+  grid-template-columns: 5rem minmax(0, 1fr) 4em;
 }
 ```
 
