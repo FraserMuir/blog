@@ -7,9 +7,7 @@ const watch = () => {
     name: "watch-markdown-files",
     handleHotUpdate({ file, server }) {
       if (file.endsWith(".md")) {
-        server.ws.send({
-          type: "full-reload",
-        });
+        server.ws.send({ type: "full-reload" });
       }
     },
   };
