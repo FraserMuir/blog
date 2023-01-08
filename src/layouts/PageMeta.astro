@@ -11,12 +11,11 @@ const { title, description } = Astro.props;
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="title" content={title} />
+<meta name="theme-color" />
 {description && <meta name="description" content={description} />}
 
 <script is:inline>
-  document.documentElement.classList.add(
-    localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ? "dark"
-      : "light"
-  );
+  const theme = localStorage.theme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  document.documentElement.classList.add(theme);
+  document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#0e141b" : "#fff");
 </script>
