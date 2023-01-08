@@ -1,7 +1,12 @@
 ---
 import { Code } from "astro/components";
-
+import shiki from "shiki";
 const { language, content } = Astro.props;
+
+// Convert theme json to shiki theme (relative to shiki node module)
+const theme = await shiki.loadTheme("./themes/one-dark-pro.json");
+// Set custom background color (darker than default)
+theme.bg = "#20232a";
 ---
 
-<Code lang={language} code={content} theme="one-dark-pro" />
+<Code lang={language} code={content} theme={theme} />
