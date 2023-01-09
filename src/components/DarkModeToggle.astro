@@ -19,6 +19,9 @@
     document
       .querySelector('meta[name="theme-color"]')
       .setAttribute("content", getComputedStyle(document.body).getPropertyValue("--page-color"));
+    document.querySelector("#favicon").href = document
+      .querySelector("#favicon")
+      .href.replace(/fill='.*?'/, `fill='${getComputedStyle(document.body).getPropertyValue("--accent-color").replace("#", "%23")}'`);
   });
 </script>
 

@@ -12,10 +12,19 @@ const { title, description } = Astro.props;
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="title" content={title} />
 <meta name="theme-color" />
+<link
+  id="favicon"
+  rel="icon"
+  href="data:image/svg+xml;utf8,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='128' cy='128' r='128' fill='' /%3E%3C/svg%3E"
+  type="image/svg+xml"
+/>
 {description && <meta name="description" content={description} />}
 
 <script is:inline>
   const theme = localStorage.theme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   document.documentElement.classList.add(theme);
   document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#0e141b" : "#fff");
+  document.querySelector("#favicon").href = document
+    .querySelector("#favicon")
+    .href.replace(/fill='.*?'/, `fill='${theme === "dark" ? "%23facc15" : "%23f16410"}'`);
 </script>
