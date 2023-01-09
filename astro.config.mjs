@@ -2,21 +2,19 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
 
-const watch = () => {
-  return {
-    name: "watch-markdown-files",
-    handleHotUpdate({ file, server }) {
-      if (file.endsWith(".md")) {
-        server.ws.send({ type: "full-reload" });
-      }
-    },
-  };
-};
+const watchContent = (extensions = [".md"]) => ({
+  name: "watch-content",
+  handleHotUpdate({ file, server }) {
+    if (extensions.some((ext) => `.${file.split(".").pop()}` === ext)) {
+      server.ws.send({ type: "full-reload" });
+    }
+  },
+});
 
 export default defineConfig({
-  site: "https://blog-beta-six-37.vercel.app",
+  site: "https://fraserr.com",
   integrations: [sitemap(), compress()],
   vite: {
-    plugins: [watch()],
+    plugins: [watchContent()],
   },
 });
