@@ -1,20 +1,24 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import Image from "../components/Image.astro";
 ---
 
 <PageLayout>
   <section>
-    <h1>Captain Awesome!</h1>
+    <h1>Fraser Muir</h1>
     <h2>Web Developer. OSS Wizard. Blogger.</h2>
-    <p>
-      Hello! This is a starter template to build your own blog with
-      <a href="https://github.com/flexdinesh/blogster" target="_blank">Blogster</a>. Available in four themes
-      <a href="https://blogster-minimal.netlify.app" target="_blank">minimal</a>,
-      <a href="https://blogster-sleek.netlify.app" target="_blank">sleek</a>,
-      <a href="https://blogster-newspaper.netlify.app" target="_blank">newspaper</a> and
-      <a href="https://blogster-bubblegum.netlify.app" target="_blank">bubblegum</a>. This blog is a demo for <strong>sleek</strong> theme. Get
-      started with one simple command.
-    </p>
+    <div class="intro-header">
+      <Image src="./images/profile.png" width={96} aspectRatio="32/43" alt="profile image" />
+      <p>
+        Hello! This is a starter template to build your own blog with
+        <a href="https://github.com/flexdinesh/blogster" target="_blank">Blogster</a>. Available in four themes
+        <a href="https://blogster-minimal.netlify.app" target="_blank">minimal</a>,
+        <a href="https://blogster-sleek.netlify.app" target="_blank">sleek</a>,
+        <a href="https://blogster-newspaper.netlify.app" target="_blank">newspaper</a> and
+        <a href="https://blogster-bubblegum.netlify.app" target="_blank">bubblegum</a>. This blog is a demo for <strong>sleek</strong> theme.
+        Get started with one simple command.
+      </p>
+    </div>
     <div class="code-center">
       <code>npx create-blogster@latest --theme sleek</code>
     </div>
@@ -73,13 +77,18 @@ import PageLayout from "../layouts/PageLayout.astro";
   }
 
   h2 {
-    margin-bottom: 2.2em;
+    margin-bottom: 1.5em;
     font-size: 1.5em;
     font-weight: normal;
   }
 
-  p {
-    margin-bottom: 1.35em;
+  .intro-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    margin: 0 auto;
+    padding: 0 1em;
+    gap: 1.5rem;
   }
 
   .code-center {
