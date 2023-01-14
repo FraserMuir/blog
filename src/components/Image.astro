@@ -1,4 +1,4 @@
 ---
 const { src, alt, height, width, aspectRatio } = Astro.props;
 ---
-<img src={src} alt={alt} height={height} width={width} style={{ aspectRatio }} />
+<img src={src} alt={alt} style={{ aspectRatio, minWidth: width ?? "", minHeight: height ?? "" }} />
