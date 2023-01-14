@@ -70,6 +70,30 @@ export const config: Config = {
     },
   },
   nodes: {
+    image: {
+      render: "Image",
+      attributes: {
+        src: { type: String, required: true },
+        alt: { type: String, required: true },
+      },
+      transform(node, config) {
+        const attributes = node.transformAttributes(config);
+        const children = node.transformChildren(config);
+        let [alt, style] = attributes.alt.split("|");
+        alt = alt.trim();
+        if (style) {
+          try {
+            style = style.trim().replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ');
+            style = JSON.parse(`{${style}}`);
+          } catch (error) {
+            throw new Error("Unable to parse image styles");
+          }
+        } else {
+          style = {};
+        }
+        return new Tag(this.render, { ...attributes, ...style, alt, isBlogStyle: true }, children);
+      },
+    },
     heading: {
       render: "Heading",
       attributes: {

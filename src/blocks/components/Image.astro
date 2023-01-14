@@ -1,0 +1,23 @@
+---
+const { src, alt, height, width, aspectRatio, decoding, loading, isBlogStyle = false } = Astro.props;
+const props = {
+  src,
+  alt,
+  width,
+  height,
+  decoding: decoding || "async",
+  loading: loading || "lazy",
+  style: { aspectRatio, minWidth: width ?? "", minHeight: height ?? "", maxWidth: "100%", maxHeight: "30rem" },
+};
+---
+
+{
+  isBlogStyle ? (
+    <div style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+      <img {...props} />
+      <p style={{ fontStyle: "italic" }}>{alt}</p>
+    </div>
+  ) : (
+    <img {...props} />
+  )
+}

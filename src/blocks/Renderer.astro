@@ -8,12 +8,14 @@ import CodePenEmbed from "./components/CodePenEmbed.astro";
 import CodeBlock from "./components/CodeBlock.astro";
 import Code from "./components/Code.astro";
 import Heading from "./components/Heading.astro";
+import Image from "./components/Image.astro";
 
 const { content } = Astro.props as { content: RenderableTreeNodes };
 
 const components = {
   code: Code,
   Heading: Heading,
+  Image: Image,
   CodeBlock: CodeBlock,
   YouTubeEmbed: YouTubeEmbed,
   TweetEmbed: TweetEmbed,

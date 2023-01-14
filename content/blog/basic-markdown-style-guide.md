@@ -89,3 +89,9 @@ Syntax highlighting is done using [Prism.js](https://github.com/PrismJS/prism). 
   </body>
 </html>
 ```
+
+## Images
+
+Here is an image!
+
+![Image | width:"6rem", aspectRatio:"32/43"](/images/profile.png)
